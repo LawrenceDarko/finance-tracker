@@ -15,18 +15,16 @@ export default function Home() {
 
         <div className="flex flex-col gap-5 lg:w-2/3">
           <StatisticsCard />
-          <div className="flex p-4 flex-col lg:flex-row gap-10 min-h-[300px] lg:max-h-[300px]">
+          <div className="flex px-4 flex-col justify-between lg:flex-row h-[600px] gap-10 lg:h-[300px]">
             <div className=" rounded flex-1 h-full">
-              <h6 className="text-gray-500 text-xl pb-4">Cash Flow</h6>
-              <div className="bg-white h-full lg:h-[90%] p-4 rounded shadow-lg overflow-auto ">
+              <div className=" h-full lg:h-full  ">
                 <CashFlow />
               </div>
             </div>
 
 
-            <div className=" rounded flex-1 h-full">
-              <h6 className="text-gray-500 text-xl pb-4">Expenses Breakdown</h6>
-              <div className="bg-white p-4 h-full lg:h-[90%] rounded shadow-lg overflow-auto ">
+            <div className="rounded flex-1 h-full">
+              <div className=" h-full lg:h-full   ">
                 <ExpensesBreakdown />
               </div>
             </div>

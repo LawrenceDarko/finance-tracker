@@ -1,0 +1,28 @@
+import { faker } from '@faker-js/faker';
+import React from 'react'
+import BarChart from './Graphs/BarChart';
+
+const ExpensesComparison = () => {
+
+    const labels: string[] = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
+    const customDatasets = [
+        {
+            label: '2024',
+            data: labels.map(() => faker.number.int({ min: 0, max: 1000 })),
+            backgroundColor: '#299D91',
+        },
+        {
+            label: '2023',
+            data: labels.map(() => faker.number.int({ min: 0, max: 1000 })),
+            backgroundColor: '#D1D1D1',
+        },
+    ];
+
+    return (
+        <div className='bg-white w-fulll p-4 rounded shadow-lg h-[300px]'>
+            <BarChart labels={labels} datasets={customDatasets} title="Monthly Spendings"/>
+        </div>
+    )
+}
+
+export default ExpensesComparison

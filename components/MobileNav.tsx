@@ -9,7 +9,7 @@ import {
     SheetTrigger,
 } from "@/components/ui/sheet"
 import Link from 'next/link'
-import { sidebarLinks } from '@/constants'
+import { sidebarLinks } from '@/app/constants'
 import { cn } from '@/lib/utils'
 import { usePathname } from 'next/navigation'
 import { LuMenu } from "react-icons/lu";
@@ -23,7 +23,7 @@ const MobileNav = () => {
                 <SheetTrigger asChild>
                     <LuMenu size={36} className='cursor-pointer sm:hidden'/>
                 </SheetTrigger>
-                <SheetContent side='left' className='border-none bg-dark-1'>
+                <SheetContent side='left' className='border-none bg-[#191919]'>
                     <Link href='/' className='flex items-center gap-1'>
                         <Image
                         src='/icons/logo.svg'
@@ -37,21 +37,16 @@ const MobileNav = () => {
 
                     <div className='flex h-[calc(100vh)-72px] flex-col justify-between overflow-y-auto'>
                         <SheetClose asChild>
-                            <section className='flex gap-6 h-full flex-col pt-16 text-white'>
-                                {sidebarLinks.map((link, index) => {
+                            <section className='flex gap-6 h-full flex-col pt-16 text-[#BABABA]'>
+                                {sidebarLinks.map(({route, label, icon: Icon}) => {
                                     // const isActive = window.location.pathname === link.route
-                                    const isActive = pathname === link.route
+                                    const isActive = pathname === route || pathname?.startsWith(`${route}/`)
 
                                     return (
-                                        <SheetClose asChild key={index}>
-                                            <Link key={index} href={link.route} className={cn('flex gap-4 items-center p-4 rounded-lg w-full max-w-60', isActive && 'bg-blue-1')}>
-                                                {/* <Image
-                                                    src={link.icon}
-                                                    alt={link.label}
-                                                    width={20}
-                                                    height={20} 
-                                                /> */}
-                                                <p className='font-semibold'>{link.label}</p>
+                                        <SheetClose asChild key={route}>
+                                            <Link key={route} href={route} className={cn('flex gap-4 items-center p-3 rounded-lg w-full max-w-60', isActive && 'bg-[#299D91] text-white')}>
+                                                <Icon className='text-[27px] lg:text-[20px]'/>
+                                                <p className='font-semibold'>{label}</p>
                                             </Link>
                                         </SheetClose>
                                     )

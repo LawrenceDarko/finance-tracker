@@ -13,10 +13,13 @@ const ExpensesBreakdown = () => {
     ];
 
     return (
-        <div className='h-full w-full gap-x-10 grid grid-cols-2'>
-            {expenses.map((expense, index) => (
-                <ExpenseBreakdownItem key={index} expense={expense} />
-            ))}
+        <div className='flex flex-col w-full h-full'>
+            <h6 className="text-gray-500 text-xl pb-4">Expenses Breakdown</h6>
+            <div className='h-full w-full gap-x-10 rounded overflow-auto shadow-lg bg-white p-4 grid grid-cols-2'>
+                {expenses.map((expense, index) => (
+                    <ExpenseBreakdownItem key={index} expense={expense} />
+                ))}
+            </div>
         </div>
     )
 }

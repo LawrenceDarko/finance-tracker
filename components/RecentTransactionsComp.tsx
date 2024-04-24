@@ -8,16 +8,10 @@ import { BsBank2 } from "react-icons/bs";
 import { BsFillClipboard2DataFill } from "react-icons/bs";
 import TransactTabItem from "./TransactTabItem";
 import TransactionItem from "./Cards/TransactionItem";
+import { ITransaction } from "@/types/types";
 // import TransactTabItem from "./TransactTabItem.jsx";
 
-interface Transaction {
-    id: number;
-    category: string;
-    name: string;
-    transactionType: 'expense' | 'revenue';
-    amount: number;
-    date: string;
-}
+
 
 const RecentTransactionsComp = () => {
     
@@ -27,7 +21,7 @@ const RecentTransactionsComp = () => {
         setActiveTab(tab);
     };
 
-    const transactions: Transaction[] =  [
+    const transactions: ITransaction[] =  [
         { id: 1, category: "Transport", name: "Taxi Fare", transactionType: "expense", amount: 160.0, date: "2023-05-17" },
         { id: 2, category: "Food", name: "Restaurant Bill", transactionType: "expense", amount: 75.0, date: "2023-05-18" },
         { id: 3, category: "Sales", name: "Product Sales", transactionType: "revenue", amount: 1200.0, date: "2023-05-19" },
@@ -44,24 +38,47 @@ const RecentTransactionsComp = () => {
     const renderFilteredTransactions = () => {
         switch (activeTab) {
             case "All":
-                return transactions.map((transaction, index) => (
-                <TransactionItem key={transaction.id} transaction={transaction} />
-                // {index !== transaction.length - 1 && (
-                //     <div className="border-b border-gray-100 my-1" />
-                // )}
-                ));
+                return (
+                    <div>
+                        {transactions.map((transaction, index) => (
+                            <React.Fragment key={transaction.id}>
+                                <TransactionItem transaction={transaction} />
+                                {index !== transactions.length - 1 && <div className="border-b border-gray-100 my-1" />}
+                            </React.Fragment>
+                        ))}
+                    </div>
+                );
+    
             case "Revenue":
-                return transactions
-                .filter((transaction) => transaction.transactionType === "revenue")
-                .map((transaction) => (
-                    <TransactionItem key={transaction.id} transaction={transaction} />
-                ));
+                const revenueTransactions = transactions.filter(
+                    (transaction) => transaction.transactionType === "revenue"
+                );
+                return (
+                    <div>
+                        {revenueTransactions.map((transaction, index) => (
+                            <React.Fragment key={transaction.id}>
+                                <TransactionItem transaction={transaction} />
+                                {index !== transactions.length - 1 && <div className="border-b border-gray-100 my-1" />}
+                            </React.Fragment>
+                        ))}
+                    </div>
+                );
+    
             case "Expenses":
-                return transactions
-                .filter((transaction) => transaction.transactionType === "expense")
-                .map((transaction) => (
-                    <TransactionItem key={transaction.id} transaction={transaction} />
-                ));
+                const expenseTransactions = transactions.filter(
+                    (transaction) => transaction.transactionType === "expense"
+                );
+                return (
+                    <div>
+                        {expenseTransactions.map((transaction, index) => (
+                            <React.Fragment key={transaction.id}>
+                                <TransactionItem transaction={transaction} />
+                                {index !== transactions.length - 1 && <div className="border-b border-gray-100 my-1" />}
+                            </React.Fragment>
+                        ))}
+                    </div>
+                );
+    
             default:
                 return null;
         }

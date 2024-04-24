@@ -1,8 +1,11 @@
+import MainGoalsCard from '@/components/Cards/MainGoalsCard'
 import React from 'react'
 
 const Goals = () => {
     return (
-        <div>Goals</div>
+        <div>
+            <MainGoalsCard />
+        </div>
     )
 }
 

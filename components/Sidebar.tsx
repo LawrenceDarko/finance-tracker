@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { sidebarLinks } from '@/constants'
+import { sidebarLinks } from '@/app/constants'
 import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 import { cn } from '@/lib/utils'
@@ -11,7 +11,7 @@ import Image from 'next/image'
 const Sidebar = () => {
     const pathname = usePathname()
     return (
-        <section className='sticky overflow-y-auto flex left-0 top-0  bottom-0 h-screen w-fit flex-col justify-between bg-[#191919] p-6 text-[#BABABA] max-sm:hidden lg:w-[264px]'>
+        <section className='sticky overflow-y-auto flex left-0 top-0  bottom-0 h-screen w-fit flex-col justify-between bg-[#191919] p-6 text-[#BABABA] max-sm:hidden lg:w-[264px] min-w-24'>
             <div className='pb-6 lg:flex justify-start items-center gap-2 hidden'>
                 <Image
                     src='/icons/logo.svg'
