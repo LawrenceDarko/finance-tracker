@@ -48,7 +48,7 @@ const BarChart: React.FC<IBarChartProps> = ({ labels, datasets, title }) => {
 
     
     return (
-        <div className='w-[95%] h-[95%] overflow-x-auto '>
+        <div className='w-full h-[95%] overflow-x-auto '>
             <Bar options={options} data={data} />
         </div>
     )

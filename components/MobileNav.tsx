@@ -21,7 +21,7 @@ const MobileNav = () => {
         <section className='w-full max-w-[264px]'>
             <Sheet>
                 <SheetTrigger asChild>
-                    <LuMenu size={36} className='cursor-pointer sm:hidden'/>
+                    <LuMenu size={36} className='cursor-pointer md:hidden'/>
                 </SheetTrigger>
                 <SheetContent side='left' className='border-none bg-[#191919]'>
                     <Link href='/' className='flex items-center gap-1'>
@@ -35,11 +35,10 @@ const MobileNav = () => {
                         <p className='text-[26px] font-extrabold text-white'>Yoom</p>
                     </Link>
 
-                    <div className='flex h-[calc(100vh)-72px] flex-col justify-between overflow-y-auto'>
+                    <div className='flex h-full flex-col'>
                         <SheetClose asChild>
-                            <section className='flex gap-6 h-full flex-col pt-16 text-[#BABABA]'>
+                            <section className='flex gap-6 overflow-y-auto h-full flex-col pt-16 pb-12 text-[#BABABA]'>
                                 {sidebarLinks.map(({route, label, icon: Icon}) => {
-                                    // const isActive = window.location.pathname === link.route
                                     const isActive = pathname === route || pathname?.startsWith(`${route}/`)
 
                                     return (

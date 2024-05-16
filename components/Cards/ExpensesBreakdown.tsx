@@ -9,6 +9,8 @@ const ExpensesBreakdown = () => {
         { category: 'Transport', name: 'Transportation', amount: 100, percentage: 20 },
         { category: 'Food', name: 'Groceries', amount: 200, percentage: 40 },
         { category: 'Entertainment', name: 'Movies', amount: 50, percentage: 10 },
+        { category: 'Shopping', name: 'Clothing', amount: 150, percentage: 30 },
+        { category: 'Entertainment', name: 'Movies', amount: 50, percentage: 10 },
         { category: 'Shopping', name: 'Clothing', amount: 150, percentage: 30 }
     ];
 

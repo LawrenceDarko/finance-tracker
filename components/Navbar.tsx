@@ -6,8 +6,8 @@ import MobileNav from './MobileNav'
 
 const Navbar = () => {
   return (
-    <nav className='flex-between fixed sm:h-[70px] z-50 w-full bg-[#F4F5F7] px-6 py-4 lg:px-10 border-b'>
-      <Link href='/' className='flex items-center gap-1 sm:hidden'>
+    <nav className='flex items-center flex-between h-full p-3 bg-white border-b shadow-sm'>
+      <Link href='/' className='flex items-center gap-1 md:hidden'>
         <Image
           src='/icons/logo.svg'
           width={32}
@@ -15,7 +15,7 @@ const Navbar = () => {
           alt='logo'
           className='max-sm:size-10'
         />
-        <p className='text-[26px] font-extrabold text-white max-sm:hidden'>Yoom</p>
+        <p className='text-[26px] font-extrabold text-white max-sm:hidden'>Fin</p>
       </Link>
 
       <div className="flex-between gap-5">

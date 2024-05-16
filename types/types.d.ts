@@ -22,6 +22,11 @@ export interface ITransaction {
     date: string;
 }
 
+export interface IExpensesGoalsCategory {
+    category: string;
+    amount: number;
+}
+
 export interface IBarChartProps {
     labels: string[];
     datasets: {

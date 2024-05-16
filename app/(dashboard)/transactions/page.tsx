@@ -4,6 +4,7 @@ import TransactionItem from '@/components/Cards/TransactionItem';
 import TransactTabItem from '@/components/TransactTabItem'
 import { ITableColumn, ITransaction } from '@/types/types';
 import DBLTable from 'dbl-table';
+// import DBLTable from '@/components/Tables/DBLTable';
 import Link from 'next/link';
 import React, { useState } from 'react'
 import { AiOutlineShopping } from 'react-icons/ai';
@@ -76,7 +77,7 @@ const Transactions = () => {
     
     
     return (
-        <div className="flex flex-col w-full gap-3">
+        <div className="flex flex-col w-full gap-3 p-4">
             <div className="w-full border-gray-200">
                 <div className="flex justify-start gap-2 p-2 ">
                     <TransactTabItem underlineTab icon={<BsFillClipboard2DataFill />} label="All" onClick={() => handleTabClick('All')} isActive={activeTab === 'All'} />

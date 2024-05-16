@@ -50,9 +50,9 @@ const ExpenseBreakdownItem: React.FC<ExpenseBreakdownItemProps> = ({ expense }) 
                     <span className="text-sm text-gray-500 lg:text-xs flex items-center">{Math.abs(percentage)}% {renderArrow(percentage)}</span>
                 </div>
             </div>
-            <div className="text-md p-2 font-bold text-gray-700">
+            {/* <div className="text-md p-2 font-bold text-gray-700">
                 <FiArrowRight />
-            </div>
+            </div> */}
         </div>
     );
 };

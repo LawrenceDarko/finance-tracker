@@ -1,29 +1,20 @@
-import { ITransaction } from '@/types/types';
-import { type } from 'os';
+import { SampleData } from '@/app/constants'
 import React from 'react'
+import BreakdownCard from './BreakdownCard'
 import { AiOutlineShopping } from 'react-icons/ai';
-import { BiCameraMovie, BiTaxi } from "react-icons/bi";
+import { BiTaxi, BiCameraMovie } from 'react-icons/bi';
 import { FaUtensils } from 'react-icons/fa';
 import { GiReceiveMoney, GiPayMoney, GiHealthNormal } from 'react-icons/gi';
 import { RiBankLine } from 'react-icons/ri';
+import { IExpensesGoalsCategory, ITransaction } from '@/types/types';
 
-// interface Transaction {
-//     id: number;
-//     category: string;
-//     name: string;
-//     transactionType: 'expense' | 'revenue';
-//     amount: number;
-//     date: string;
-// }
 
 interface Props {
-    transaction: ITransaction;
+    transaction: IExpensesGoalsCategory;
 }
 
-
-
-const TransactionItem: React.FC<Props> = ({ transaction }) => {
-    const { name, category, transactionType, amount, date } = transaction;
+const ExpensesGoalsCategoryItem: React.FC<Props> = ({ transaction }) => {
+    const {category, amount } = transaction;
 
     const getIcon = () => {
         switch (category) {
@@ -32,7 +23,7 @@ const TransactionItem: React.FC<Props> = ({ transaction }) => {
         case 'Food':
             return <FaUtensils className="text-gray-500" />;
         case 'Sales':
-            return transactionType === 'revenue' ? <GiReceiveMoney className="text-green-500" /> : <GiPayMoney className="text-red-500" />;
+            return <GiReceiveMoney className="text-green-500" />
         case 'Entertainment':
             return <BiCameraMovie className="text-purple-500" />; // Icon for Entertainment
         case 'Shopping':
@@ -47,38 +38,25 @@ const TransactionItem: React.FC<Props> = ({ transaction }) => {
                 return null;
             }
     };
-
-    const formatAmount = (value: number) => {
-        return value.toFixed(2);
-    };
-
-    const renderAmount = () => {
-        return transactionType === 'revenue' ? (
-            <span className="text-green-500 font-semibold">${formatAmount(amount)}</span>
-        ) : (
-            <span className="text-red-500 font-semibold">-${formatAmount(amount)}</span>
-        );
-    };
     
     return (
-        <div className="flex justify-between w-full items-end border-gray-300 py-3 gap-4">
+        <div className="flex bg-white rounded shadow-sm justify-between w-full items-end border-gray-300 p-3 gap-4">
             <div className="flex items-center flex-col justify-center p-4 bg-gray-100 rounded-md">
                 {getIcon()}
             </div>
 
             <div className="flex items-start w-full space-x-4">
                 <div className="flex flex-col">
-                    <span className="font-semibold text-gray-800">{name}</span>
                     <span className="text-sm text-gray-500 lg:text-xs">{category}</span>
+                    <span className="font-semibold text-gray-800">${amount}</span>
                 </div>
             </div>
 
-            <div className="text-md rounded-md flex flex-col font-semibold text-gray-700">
-                {renderAmount()}
-                <span className="text-sm text-gray-500 lg:text-xs whitespace-nowrap">{date}</span>
+            <div className="text-md cursor-pointer flex justify-center h-full w-full items-end flex-col font-semibold text-gray-700">
+                <div className="text-sm border-[#299D91] text-[#299D91] rounded-md border px-3 py-2 lg:text-xs whitespace-nowrap">Adjust</div>
             </div>
         </div>
     )
 }
 
-export default TransactionItem
+export default ExpensesGoalsCategoryItem

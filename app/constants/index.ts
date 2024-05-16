@@ -8,7 +8,7 @@ import { BsBarChartFill } from "react-icons/bs";
 import { FaMoneyCheckAlt } from "react-icons/fa";
 import { MdMonetizationOn } from "react-icons/md";
 import { AiOutlineSetting } from "react-icons/ai";
-import { BalanceItemData, IUpcomingBillsData } from "@/types/types";
+import { BalanceItemData, IExpensesGoalsCategory, IUpcomingBillsData } from "@/types/types";
 
 export const sidebarLinks = [
     {
@@ -64,7 +64,7 @@ export const sidebarLinks = [
 ];
 
 export const SampleData: BalanceItemData[] = [
-    { cardType: 'Credit Card', cardLogoSrc: '/icons/Mastercard.svg', accountNumber: '3388 4556 8860 ****', totalAmount: '$2,500', bankName: 'Bank A' },
+    { cardType: 'Credit Card', cardLogoSrc: '/icons/Mastercard.svg', accountNumber: '3388-4556-8860 ****', totalAmount: '$2,500', bankName: 'Bank A' },
     { cardType: 'Debit Card', cardLogoSrc: '/icons/Visacard.svg', accountNumber: '5566 7788 9900 ****', totalAmount: '$1,200', bankName: 'Bank B' },
     { cardType: 'Prepaid Card', cardLogoSrc: '/icons/Mastercard.svg', accountNumber: '1122 3344 5566 ****', totalAmount: '$500', bankName: 'Bank C' },
     { cardType: 'Savings Account', cardLogoSrc: '/icons/Mastercard.svg', accountNumber: '9900 8877 6655 ****', totalAmount: '$10,000', bankName: 'Bank D' },
@@ -82,6 +82,17 @@ export const upcomingBillsData: IUpcomingBillsData[] = [
     { name: 'Netflix Subscription', date: new Date(), logo: "/icons/Mastercard.svg", description: "Phone Bill", lastCharged: "2024-03-25", amount: 45.00 },
     { name: 'Electricity Bill', date: new Date(), logo: "/icons/Adobe.svg", description: "Software License Renewal", lastCharged: "2024-04-05", amount: 99.99 },
     { name: 'Water Bill', date: new Date(), logo: "/icons/Adobe.svg", description: "Gym Membership", lastCharged: "2024-03-28", amount: 29.99 }
+];
+
+export const ExpensesGoalsCategoryData: IExpensesGoalsCategory[] = [
+    {category: "Transport", amount: 100.00},
+    {category: "Food", amount: 200.00},
+    {category: "Sales", amount: 50.00},
+    {category: "Entertainment", amount: 150.00},
+    {category: "Shopping", amount: 300.00},
+    {category: "Salary", amount: -100.00},
+    {category: "Health", amount: 80.00},
+    {category: "Investment", amount: -500.00}
 ];
 
 export const merchantListData = [
